@@ -1,17 +1,20 @@
-/ -> home page, show summary and login / signup
-/leaderboard -> ctf-style leaderboard
-/codes -> shows a list of all codes, their points and found count
+# qrhunt
 
-/login
-/signup
-/logout
+A simple qr code hunting service.
+very WIP.
 
-/me -> show username, show found codes
+test with this command:
+```sh
+flask --app qrhunt run --debug
+```
 
-/hunt/<uuid> -> this is found on qr codes, if user is not logged in, prompt them to, then register the find
+create or reset the admin account:
+```sh
+flask --app qrhunt create-admin
+```
 
-/admin -> admin panel
 
-    allow for creating and editing codes
-    allow for banning users
-
+create or reset the database:
+```sh
+flask --app qrhunt init-db
+```
