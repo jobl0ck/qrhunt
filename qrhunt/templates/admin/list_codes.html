@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{% block title %}Code List{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <a href="{{ url_for('admin.new_code') }}">New Code</a>
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Solve Count</th>
+        <th>Point Value</th>
+    </tr>
+        {% for code in codes %}
+            <tr>
+                <td>{{ code["name"] }}</td>
+                <td>{{ code["description"] }}</td>
+                <td>{{ points[loop.index0][0] }}</td>
+                <td>{{ points[loop.index0][1] }}</td>
+                <td><div>
+                    <a href="{{ url_for('admin.view_code', id_=code['id']) }}">View</a>
+                    <a>Edit</a>
+                    <a>Delete</a>
+                </div></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

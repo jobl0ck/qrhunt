@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{% block title %}Leaderboard{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Points</th>
+            <th>Username</th>
+        </tr>
+        {% for entry in data %}
+            <tr 
+                {% if entry["me"] %}
+                    class="leaderboard-selected"
+                {% endif %}
+            >
+                <td>{{ entry["points"] }}</td>
+                <td>{{ entry["name"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

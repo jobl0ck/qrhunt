@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{% block title %}You found a code!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% if not g.user %}
+        <h1 style="color: red;">You are currently not logged in. To save progress and appear on the leaderboard, you need to create an account and scan the code again.</h1>
+    {% endif%}
+
+    <h1>{{ code["name"] }}</h1>
+    <p>{{ code["description"] }}</p>
+{% endblock %}
